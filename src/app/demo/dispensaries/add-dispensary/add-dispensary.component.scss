@@ -1,0 +1,55 @@
+agm-map {
+    height: 300px;
+}
+
+.error-div {
+    color: red;
+    background-color: white;
+}
+label{
+	font-weight: bold;
+}
+.mandatory{
+	color: red;
+}
+.subscription_plans_wrapper {
+    padding-bottom: 20px;
+    position: relative;
+
+    .subscription_plans_wrapper_inner.selected{
+    	    background: #59aa70;
+    	    cursor: pointer;
+    	     h3{
+	    		color: #fff;
+		    }
+		    p{
+		    	color: #fff;
+		    }
+		    span {
+		    	color: #fff;
+		    }
+    }
+    .subscription_plans_wrapper_inner {
+	    background-color: #f7f7f7;
+	    padding: 15px 20px;
+	    cursor: not-allowed;
+	    display: block;
+
+	    h3{
+	    	font-size: 17px;
+	    	margin-bottom: 2px;
+	    	color: #888;
+	    }
+
+	    p{
+	    	margin: 0px;
+	    }
+	    span {
+		    position: absolute;
+		    right: 50px;
+		    font-size: 16px;
+		    top: 50%;
+		    margin-top: -20px;
+		}
+	}
+}

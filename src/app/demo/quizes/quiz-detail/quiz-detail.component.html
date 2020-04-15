@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="Question Detail" [options]="false">
+      	<nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a [routerLink]="['/dashboard/default']"><i class="feather icon-home"></i></a></li>
+          <li class="breadcrumb-item"><a [routerLink]="['/admin/quiz/questions']">All Questions</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Question Details</li>
+        </ol>
+      </nav>
+        <div class="table-responsive">
+          <h4>{{ this.questionData.question_name }}</h4>
+          <div>
+          	<ul class="question_options">
+          		<li *ngFor="let option of this.questionData.options" [ngClass]="(option.isAnswer=='true')?'true':'fasle'">{{ option.option_value }}</li>
+          	</ul>
+          </div>
+        </div>
+      </app-card>
+    </div>
+  </div>
+  

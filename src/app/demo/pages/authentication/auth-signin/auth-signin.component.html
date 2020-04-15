@@ -1,0 +1,35 @@
+<div class="auth-wrapper">
+  <div class="auth-content">    
+    <div class="card">      
+      <div class="card-body text-center">
+        <div class="mb-4">
+          <img id="logo-image" class="img-fluid" [src]="'assets/images/buds-logo.png'" />
+        </div>        
+        <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit(loginForm)" #myform="ngForm" method="POST">
+          <div class="input-group mb-2">
+            <input type="email" class="form-control" placeholder="Email" formControlName="email" required>
+          </div>
+          <div class="input-group mb-3 error-div">
+            <small *ngIf="loginForm.get('email').hasError('required') && myform.submitted">Email Required</small>
+            <small *ngIf="!loginForm.get('email').hasError('required') && loginForm.get('email').status === 'INVALID' && myform.submitted">Enter a valid email address</small>
+          </div>
+
+          <div class="input-group mb-2">
+            <input type="password" class="form-control" placeholder="Password" formControlName="password" required>
+          </div>
+          <div class="input-group mb-3 error-div">
+            <small *ngIf="loginForm.get('password').hasError('required') && myform.submitted">Password Required</small>
+          </div>
+
+          <div class="input-group mb-4 error-div">
+            <small *ngIf="authenticationError && myform.submitted">{{ authenticationError }}</small>
+          </div>
+          <button class="btn btn-primary mb-4">Login</button>
+        </form>
+        
+        <p class="mb-2 text-muted">Forgot password? <a [routerLink]="['/auth/forget']">Reset</a></p>
+        <p class="mb-0 text-muted">Don’t have an account? <a [routerLink]="['/auth/signup']">Sign up</a></p>
+      </div>
+    </div>
+  </div>
+</div>

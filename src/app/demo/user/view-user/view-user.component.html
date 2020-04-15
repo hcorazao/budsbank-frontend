@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-xl-12">
+        <app-card cardTitle="User Profile" [options]="false">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="mb-4" id="basic-info-heading">Profile Image</h4>
+                    <img *ngIf="userProfile.image !== null" class="img-fluid img-thumbnail img-rounded" src="{{userProfile.image}}" alt="user profile image" width="250" height="250">
+                    <img *ngIf="userProfile.image === null" class="img-fluid img-thumbnail img-rounded" src="assets/images/admin-user-demo.png" alt="user profile image" width="250" height="250">
+                </div>
+                <div class="col-md-6 table-responsive-sm"> 
+                    <h4 class="mb-4" id="basic-info-heading">Basic Information</h4>
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <td><b>Username:</b></td>
+                                <td>{{userProfile.username}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>First Name:</b></td>
+                                <td>{{userProfile.first_name}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Last Name:</b></td>
+                                <td>{{userProfile.last_name}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Email:</b></td>
+                                <td>{{userProfile.email}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Phone:</b></td>
+                                <td>{{userProfile.phone}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Status:</b></td>
+                                <td>
+                                    <span *ngIf="userProfile.status !== '1'" class="badge badge-success">Active</span>
+                                    <span *ngIf="userProfile.status === '1'" class="badge badge-danger">Disabled</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Email Verification:</b></td>
+                                <td>
+                                    <span *ngIf="userProfile.email_verified_at !== null" class="badge badge-success">Verified</span>
+                                    <span *ngIf="userProfile.email_verified_at === null" class="badge badge-danger">Unverified</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Joining Date:</b></td>
+                                <td>{{userProfile.created}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-12 mt-3 text-right" id="update-button">
+                    <button class="btn btn-primary btn-sm" (click)="updateProfile(userProfile.id)">Update</button>
+                </div>
+            </div>
+        </app-card>
+    </div>
+</div>

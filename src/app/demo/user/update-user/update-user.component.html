@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <app-card cardTitle="Update User" [options]="false">
+            <form [formGroup]="updateUserForm" (ngSubmit) = "onUpdateUserSubmit(addUserForm)" #myform="ngForm" method="POST" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="mb-4" id="basic-info-heading">Basic Information</h4>
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" formControlName="username" class="form-control" aria-describedby="Username" placeholder="Enter Username" required>
+                            <div class="mb-3 error-div">
+                                <small *ngIf="updateUserForm.get('username').hasError('required') && myform.submitted">Username Required</small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" formControlName="first_name" class="form-control" aria-describedby="First Name" placeholder="Enter Firstname" required>
+                            <div class="mb-3 error-div">
+                                <small *ngIf="updateUserForm.get('first_name').hasError('required') && myform.submitted">Firstname Required</small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" formControlName="last_name" class="form-control" aria-describedby="Last Name" placeholder="Enter Lastname">
+                            <div class="mb-3 error-div">
+                                <small *ngIf="updateUserForm.get('last_name').hasError('required') && myform.submitted">Last Required</small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Email address</label>
+                            <input type="email" formControlName="email" class="form-control" aria-describedby="Email" placeholder="Enter Email">
+                            <div class="mb-3 error-div">
+                                <small *ngIf="updateUserForm.get('email').hasError('required') && myform.submitted">Email Required</small>
+                                <small *ngIf="!updateUserForm.get('email').hasError('required') && updateUserForm.get('email').status === 'INVALID' && addUserForm.get('email').touched  && myform.submitted">Invalid Email Address</small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="text" formControlName="phone" class="form-control" aria-describedby="Phone" placeholder="Enter Phone" required>
+                            <div class="mb-3 error-div">
+                                <small *ngIf="updateUserForm.get('phone').hasError('required') && myform.submitted">Phone Required</small>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" formControlName="user_id" value="{{updateUserForm.get('user_id').value}}">
+                    <div class="col-md-6 text-center">
+                        <h4 class="mb-4" id="basic-info-heading">Profile Image</h4>
+                        <img id="profile-image" class="img-fluid img-thumbnail img-rounded mt-4" [src]="previewUrl ? previewUrl: updateUserForm.get('image').value !== null ? updateUserForm.get('image').value: 'assets/images/admin-user-demo.png'" height="250" width="250" />
+                        <div class="form-group" id="image-wrapper">
+                            <input type="file" formControlName="image" (change)="fileProgress($event)" ng2FileSelect [uploader]="uploader" class="form-control" aria-describedby="Image" style="width: 250px">
+                        </div>
+                    </div>
+                </div> 
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+            </app-card>
+        </div>
+    </div>
+</div>
+

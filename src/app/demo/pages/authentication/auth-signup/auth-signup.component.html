@@ -1,0 +1,104 @@
+<div class="auth-wrapper" style="padding-top: 5%;">
+  <ngx-spinner [name]="'spinner1'" [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium">
+  </ngx-spinner>
+  <div class="auth-content signup-cart">
+    <div class="card">
+      <div class="content_signup">
+        <h1>Partner with Bud’s and do more for your business.</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce congue, tortor non volutpat imperdiet, orci ipsum blandit odio, ac pellentesque eros dui quis ipsum. Sed eu est eu magna iaculis tempor. Integer ut mi non erat tempus tempus. Mauris lobortis mauris elit, sit amet facilisis arcu pretium ac. Morbi gravida pulvinar arcu, a aliquet mauris eleifend eu. Nullam eget orci mi. Mauris neque lectus, dictum nec urna id, faucibus dignissim nunc. Integer pretium erat a turpis iaculis luctus.</p>
+      </div>
+      <div class="form_section_left">
+          <div class="card-body text-center">
+              <div class="mb-4">
+                <!-- <i class="feather icon-user-plus auth-icon"></i> -->
+                <img id="logo-image" class="img-fluid img-rounded" [src]="'assets/images/buds-logo.png'" height="70" width="70" />
+              </div>
+              <div id="register-section">
+                <h3 class="mb-4 signup-heading">Sign up for an account to create multiple listings
+                  with our growing community!</h3>
+                <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit(registerForm)" #myform="ngForm" method="POST">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Account Manager Email Address" formControlName="email"
+                      required>
+                      <div class="input-group error-div">
+                        <small *ngIf="registerForm.get('email').hasError('required') && myform.submitted">Email
+                          Required</small>
+                      </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="First name" formControlName="firstname" required>
+                      <div class="input-group error-div">
+                        <small *ngIf="registerForm.get('firstname').hasError('required') && myform.submitted">First Name
+                          required
+                        </small>
+                      </div>
+                    </div>
+
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Last name" formControlName="lastname" required>
+                      <div class="input-group error-div">
+                        <small *ngIf="registerForm.get('lastname').hasError('required') && myform.submitted">Last Name
+                          required
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  
+
+                  <div class="input-group mb-3">
+                    <input type="password" class="form-control" placeholder="Password" formControlName="password" required>
+                    <div class="input-group error-div">
+                      <small *ngIf="registerForm.get('password').hasError('required') && myform.submitted">Password
+                        Required</small>
+                    </div>
+                  </div>
+                  
+                  <div class="input-group mb-3">
+                    <input type="password" class="form-control" placeholder="Confirm Password"
+                      formControlName="confirmPassword" required>
+                  </div>
+                  <div class="input-group mb-3 error-div">
+                    <span *ngIf="registerForm.errors?.invalid">
+                      Password doesn't match
+                    </span>
+                  </div>
+                  <div class="input-group mb-3 check_box_buds">
+                    <input (change)="changeCheck($event)" type="checkbox" class="form-check-input">
+                    <label class="form-check-label">I confirm that I am 21 or over and that I agree to the Bud’s Bank Terms of Use and Privacy Policy. </label>
+                  </div>
+
+                  <div class="input-group mb-4 error-div">
+                    <small *ngIf="authenticationError && myform.submitted">{{ authenticationError }}</small>
+                  </div>
+
+                  <button [disabled]="registerForm.errors?.invalid"
+                    class="btn btn-primary shadow-2 mb-4">CREATE ACCOUNT</button>
+                </form>
+                <p class="mb-0 text-muted">Already have an account? <a [routerLink]="['/auth/signin']"> Log in</a></p>
+              </div>
+          </div>
+          <div id="payment-section" class="pay_buds" style="display: none;">
+            <div id="form-container" class="text-center" style="margin-top: 36%;">
+              <!-- <div class="mb-4" style="margin-bottom: 5%;">
+                <i class="feather icon-user-plus auth-icon"></i>
+              </div> -->
+              <h3 class="mb-4">Payment</h3>
+              <p class="mb-4">Just a one-step away: Complete your subscription by paying the fee and have your business
+                listing on Bud's Bank.</p>
+              <div id="sq-card-number"></div>
+              <div class="third" id="sq-expiration-date"></div>
+              <div class="third" id="sq-cvv"></div>
+              <div class="third" id="sq-postal-code"></div>
+              <button id="sq-creditcard" class="btn btn-primary shadow-2 mb-4" (click)="onGetCardNonce($event)">Pay
+                $1.00</button>
+            </div>
+            <div style="display: none;">
+              <p id="p-nonce"></p>
+              <button type="submit" class="btn btn-primary" (click)="onFormSubmit($event)" id="onFormSubmit">Submit</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>

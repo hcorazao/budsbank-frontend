@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-xl-12">
+        <app-card cardTitle="Admin Profile" [options]="false">
+            <div class="row">
+                
+                <div class="col-md-6 table-responsive-sm"> 
+                    <h4 class="mb-4" id="basic-info-heading">Basic Information</h4>
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <td><b>Name:</b></td>
+                                <td>{{userProfile.name}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Email:</b></td>
+                                <td>{{userProfile.email}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Last Updated at:</b></td>
+                                <td>{{userProfile.updated_at}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-12 mt-3 text-right" id="update-button">
+                    <button class="btn btn-primary btn-sm" (click)="updateProfile(userProfile.id)">Update</button>
+                </div>
+            </div>
+        </app-card>
+    </div>
+</div>

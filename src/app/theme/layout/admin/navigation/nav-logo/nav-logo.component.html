@@ -1,0 +1,10 @@
+<div class="navbar-brand header-logo">
+  <a [routerLink]="['/dashboard/default/']" class="b-brand">
+    <div class="b-bg">
+      <!-- <i class="feather icon-trending-up"></i> -->
+      <img id="logo-image" class="img-fluid img-rounded" [src]="'assets/images/budslogo1.png'" height="250" width="250" />
+    </div>
+    <span class="b-title">Bud's Bank</span>
+  </a>
+  <a href="javascript:" class="mobile-menu" [ngClass]="{'on' : navCollapsed}" id="mobile-collapse" (click)="navCollapse()"><span></span></a>
+</div>

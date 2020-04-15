@@ -1,0 +1,20 @@
+<div style="margin-top: 20%;">
+    <div id="form-container">
+        <div id="sq-card-number"></div>
+        <div class="third" id="sq-expiration-date"></div>
+        <div class="third" id="sq-cvv"></div>
+        <div class="third" id="sq-postal-code"></div>
+        <button id="sq-creditcard" class="button-credit-card" (click)="onGetCardNonce($event)">Pay $1.00</button>
+    </div>
+</div>
+ 
+ <!-- <form id="nonceform" [formGroup]="addPaymentForm" (ngSubmit) = "onPaymentSubmit(addPaymentForm)" #myform="ngForm" method="POST">
+    <input formControlName="sqId"  id="sq-id">
+    <input type="text" formControlName="cardNonce" class="form-control" id="card-nonce">
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form> -->
+
+<div style="display: none;">
+    <p id="p-nonce"></p>
+    <button type="submit" class="btn btn-primary" (click)="onFormSubmit($event)" id="onFormSubmit">Submit</button>
+</div>

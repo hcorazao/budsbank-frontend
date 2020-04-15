@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="My Dispensaries" [options]="false">
+        <a (click)="createDispensary()" class="create_dispensary_right list">CREATE DISPENSARY</a>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <!-- <th>#</th> -->
+              <th>Title</th>
+              <th>Featured</th>
+              <th>Phone</th>
+              <th>Code</th>
+              <th>Longitude</th>
+              <th>Latitude</th>
+              <th class="text-right">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let dispensaries of this.allDispensaries">
+              <!-- <th scope="row">{{ counter + 1 }}</th> -->
+              <td>{{ dispensaries.name }}</td>
+              <td *ngIf="dispensaries.featured == 'true'">
+                <a href="javascript:" class="badge badge-success theme-bg text-white f-12">Featured</a>
+              </td>
+              <td *ngIf="dispensaries.featured == 'false'">
+                <a href="javascript:" class="badge badge-primary theme-bg2 text-white f-12">Normal</a>
+              </td>
+              <td>{{ dispensaries.phone }}</td>
+              <td>{{ dispensaries.code }}</td>
+              <td>{{ dispensaries.longitude }}</td>
+              <td>{{ dispensaries.latitude }}</td>
+              <td class="text-right">
+                <a (click)="viewDispensary(dispensaries.id)"><i class="feather icon-eye text-c-green m-r-10" data-toggle="tooltip" data-placement="top" title="View Dispensary"></i></a>
+                <a (click)="editDispensary(dispensaries.id)"><i class="feather icon-edit text-c-green m-r-10" data-toggle="tooltip" data-placement="top" title="Edit Dispensary"></i></a>
+                <a 
+                  (click)="disableDispensaryPopup(dispensaries.id)"
+                >
+                  <i class="feather icon-trash text-c-green m-r-10" data-toggle="tooltip" data-placement="top" title="Disable Dispensary"></i></a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="mt-3 text-right">
+            <a (click)="loadPrevResults()" id="prev-button" class="btn btn-primary" style="color: white; padding: 5px;">Prev</a>
+            <a (click)="loadNextResults()" id="next-button" class="btn btn-primary" style="color: white; padding: 5px;">Next</a>
+          </div>
+        </div>
+      </app-card>
+    </div>
+  </div>
+  

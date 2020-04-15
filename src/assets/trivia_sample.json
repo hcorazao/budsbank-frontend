@@ -1,0 +1,26 @@
+[
+   {
+      "question_text":"Sample question 1?",
+      "answers":[
+         {
+            "answer_a":"option A",
+            "answer_b":"option B",
+            "answer_c":"option C",
+            "answer_d":"option D",
+            "correct_answer":"a"
+         }
+      ]
+   },
+   {
+      "question_text":"Sample question 2?",
+      "answers":[
+         {
+            "answer_a":"option A",
+            "answer_b":"option B",
+            "answer_c":"option C",
+            "answer_d":"option D",
+            "correct_answer":"b"
+         }
+      ]
+   }
+]
