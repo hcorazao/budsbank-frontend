@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3300/admin',
+  apiUrl: 'http://lb-dbc-budsbank-api-966354992.us-east-2.elb.amazonaws.com/admin',
   authorizationSecret: 'YnVkc0Jhbms6YnVkc0JhbmswMDc=',
-  baseUrl: 'http://localhost:3300'
+  baseUrl: 'http://lb-dbc-budsbank-api-966354992.us-east-2.elb.amazonaws.com'
 };
 
 /*
